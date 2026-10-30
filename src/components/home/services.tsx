@@ -2,6 +2,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { TextLink } from "@/components/ui/text-link";
 import { services } from "@/content/services";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { href } from "@/i18n/routes";
 
 export async function Services() {
   const locale = await getLocale();
@@ -31,14 +32,12 @@ export async function Services() {
             {service.example && (
               <p className="col-span-full text-sm md:col-span-2 md:text-right">
                 <span className="block label text-ink-muted">{t.example}</span>
-                {service.example.href ? (
+                {service.example.projectSlug ? (
                   <TextLink
-                    href={service.example.href}
-                    external
-                    newTabHint={dict.a11y.opensInNewTab}
+                    href={href(locale, "projects", service.example.projectSlug)}
                     className="mt-1"
                   >
-                    {service.example.label[locale]}
+                    {service.example.label[locale]} →
                   </TextLink>
                 ) : (
                   <span className="mt-1 inline-block">{service.example.label[locale]}</span>

@@ -19,7 +19,7 @@ export const services: Service[] = [
     },
     example: {
       label: { es: cafeSinnoh.title, en: cafeSinnoh.title },
-      href: cafeSinnoh.links.live,
+      projectSlug: cafeSinnoh.slug,
     },
   },
   {

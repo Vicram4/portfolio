@@ -32,11 +32,6 @@ const es = {
     featured: {
       eyebrow: "Proyectos destacados",
       title: "Trabajo seleccionado",
-      year: "Año",
-      role: "Rol",
-      stack: "Stack",
-      live: "Ver demo",
-      repo: "Código en GitHub",
       viewAll: "Ver todos los proyectos",
     },
     services: {
@@ -70,6 +65,33 @@ const es = {
       title: "¿Tienes un proyecto o una oferta?",
       highlight: "Hablemos",
       cta: "Escríbeme",
+    },
+  },
+  /** Etiquetas comunes de un proyecto (tarjetas, fichas y caso de estudio). */
+  project: {
+    year: "Año",
+    role: "Rol",
+    duration: "Duración",
+    stack: "Stack",
+    links: "Enlaces",
+    live: "Ver demo",
+    repo: "Código en GitHub",
+    viewCase: "Ver caso de estudio",
+    caseStudy: "Caso de estudio",
+  },
+  projects: {
+    eyebrow: "Proyectos",
+    title: "Diseñados y construidos de principio a fin",
+    moreComing: "Nuevos proyectos en camino.",
+    backToAll: "Todos los proyectos",
+    sections: {
+      goal: "Objetivo",
+      challenge: "El reto",
+      features: "Funcionalidades",
+      decisions: "Decisiones técnicas",
+      stack: "Tecnologías",
+      gallery: "Galería",
+      credits: "Cómo lo hice",
     },
   },
   copyEmail: {

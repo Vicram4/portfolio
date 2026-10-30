@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { projectSlugs } from "@/content/projects/slugs";
 import { defaultLocale, hasLocale, LOCALE_COOKIE, type Locale } from "@/i18n/config";
 import { href, isSectionKey, routeKeyFromSegment } from "@/i18n/routes";
 
@@ -8,7 +9,8 @@ import { href, isSectionKey, routeKeyFromSegment } from "@/i18n/routes";
  * 1. Sin idioma en la URL ("/", "/proyectos"): redirige al idioma preferido.
  * 2. URL traducida ("/es/proyectos"): la reescribe a la carpeta real
  *    ("/es/projects") sin que cambie lo que ve el usuario.
- * 3. Recuerda en una cookie el último idioma visitado.
+ * 3. Proyecto inexistente ("/es/proyectos/no-existe"): responde con la 404.
+ * 4. Recuerda en una cookie el último idioma visitado.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -25,7 +27,13 @@ export function proxy(request: NextRequest) {
   if (segment) {
     const key = routeKeyFromSegment(locale, segment);
 
-    if (key && key !== segment) {
+    if (key === "projects" && rest.length > 0 && !isProjectPath(rest)) {
+      // Proyecto inexistente: 404 real antes de renderizar (sin esto, la página
+      // empezaría a enviarse con código 200). La ruta comodín muestra la 404 traducida.
+      const url = request.nextUrl.clone();
+      url.pathname = `/${locale}/404`;
+      response = NextResponse.rewrite(url);
+    } else if (key && key !== segment) {
       // "/es/proyectos/..." → "/es/projects/..." (interno)
       const url = request.nextUrl.clone();
       url.pathname = "/" + [locale, key, ...rest].join("/");
@@ -49,6 +57,11 @@ export function proxy(request: NextRequest) {
   }
 
   return response;
+}
+
+/** ¿Es "<slug>" (un solo segmento) de un proyecto publicado? */
+function isProjectPath(rest: string[]): boolean {
+  return rest.length === 1 && (projectSlugs as readonly string[]).includes(rest[0]);
 }
 
 /** Cookie (última elección) → idioma del navegador → español. */

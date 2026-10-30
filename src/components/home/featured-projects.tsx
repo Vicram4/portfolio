@@ -1,5 +1,7 @@
-import Image from "next/image";
-import type { ReactNode } from "react";
+import Link from "next/link";
+import { ProjectCover } from "@/components/projects/project-cover";
+import { ProjectLinks } from "@/components/projects/project-links";
+import { SpecRow } from "@/components/projects/spec-row";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
 import { TextLink } from "@/components/ui/text-link";
@@ -51,25 +53,25 @@ function FeaturedProject({
   dict: Dictionary;
   reversed: boolean;
 }) {
-  const t = dict.home.featured;
-  const newTab = dict.a11y.opensInNewTab;
+  const t = dict.project;
+  const caseHref = href(locale, "projects", project.slug);
 
   return (
     <article className="grid-editorial reveal gap-y-8">
-      <div
-        className={cn(
-          "col-span-full overflow-hidden border border-ink/10 bg-paper-deep md:col-span-8",
-          reversed && "md:col-start-5",
-        )}
+      {/* La imagen repite el enlace del título: se oculta a lectores de pantalla y teclado. */}
+      <Link
+        href={caseHref}
+        tabIndex={-1}
+        aria-hidden="true"
+        className={cn("group col-span-full md:col-span-8", reversed && "md:col-start-5")}
       >
-        <Image
-          src={project.cover.src}
-          alt={project.cover.alt[locale]}
-          placeholder="blur"
+        <ProjectCover
+          project={project}
+          locale={locale}
           sizes="(width >= 48rem) 66vw, 100vw"
-          className="h-auto w-full"
+          className="transition-opacity duration-500 group-hover:opacity-90"
         />
-      </div>
+      </Link>
 
       <div
         className={cn(
@@ -77,7 +79,11 @@ function FeaturedProject({
           reversed ? "md:col-start-1" : "md:col-start-9",
         )}
       >
-        <h3 className="font-display text-title">{project.title}</h3>
+        <h3 className="font-display text-title">
+          <Link href={caseHref} className="link-draw">
+            {project.title}
+          </Link>
+        </h3>
         <p className="mt-4 text-ink-muted">{project.summary[locale]}</p>
 
         <dl className="mt-8 divide-y divide-ink/10 border-y border-ink/10 text-sm">
@@ -94,28 +100,11 @@ function FeaturedProject({
           </SpecRow>
         </dl>
 
-        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-          {project.links.live && (
-            <TextLink href={project.links.live} external newTabHint={newTab}>
-              {t.live}
-            </TextLink>
-          )}
-          {project.links.repo && (
-            <TextLink href={project.links.repo} external newTabHint={newTab}>
-              {t.repo}
-            </TextLink>
-          )}
-        </div>
+        <TextLink href={caseHref} className="mt-8 self-start font-medium">
+          {t.viewCase} →
+        </TextLink>
+        <ProjectLinks project={project} dict={dict} className="mt-4 text-sm text-ink-muted" />
       </div>
     </article>
-  );
-}
-
-function SpecRow({ term, children }: { term: string; children: ReactNode }) {
-  return (
-    <div className="flex items-baseline justify-between gap-6 py-3">
-      <dt className="shrink-0 label text-ink-muted">{term}</dt>
-      <dd className="text-right">{children}</dd>
-    </div>
   );
 }

@@ -25,16 +25,34 @@ export function buttonStyles(variant: Variant = "primary", className?: string): 
 export function ButtonLink({
   href,
   variant = "primary",
+  newTabHint,
   className,
   children,
 }: {
   href: string;
   variant?: Variant;
+  /** Si se indica, es un enlace externo que se abre en otra pestaña. */
+  newTabHint?: string;
   className?: string;
   children: ReactNode;
 }) {
+  const classes = buttonStyles(variant, className);
+
+  if (newTabHint) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children}
+        <ArrowIcon
+          diagonal
+          className="transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
+        <span className="sr-only">{newTabHint}</span>
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} className={buttonStyles(variant, className)}>
+    <Link href={href} className={classes}>
       {children}
       <ArrowIcon className="transition-transform duration-500 ease-out-expo group-hover:translate-x-1" />
     </Link>
