@@ -21,6 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${profile.name}`,
     },
     description: dict.metadata.description,
+    // TEMPORAL hasta el lanzamiento (Fase 8): la web ya es accesible en Vercel,
+    // pero no debe aparecer en buscadores hasta que esté terminada.
+    robots: { index: false, follow: false },
   };
 }
 
