@@ -206,8 +206,8 @@ const colors = [
   },
   {
     token: "accent-ink",
-    hex: "#B5400F",
-    contrast: "4.9 : 1",
+    hex: "#A63A0C",
+    contrast: "5.6 : 1",
     swatch: "bg-accent-ink",
     use: "Naranja para texto pequeño",
   },

@@ -62,7 +62,7 @@ const en: Dictionary = {
     closing: {
       title: "Got a project or a job offer?",
       highlight: "Let’s talk",
-      cta: "Write to me",
+      cta: "Contact me",
     },
   },
   project: {
@@ -103,7 +103,7 @@ const en: Dictionary = {
     intro: [
       "I’m Víctor Ramos, a full stack developer based in Madrid. I came to programming from marketing: I first trained in Marketing and Advertising and worked analysing data and managing social media; then I studied Web Application Development and made the move into development.",
       "That mix shapes how I work. I don’t just build websites and apps that work: I also think about who they’re for, what they need to communicate and how to tell whether they succeed. My time as an SAP integrator also taught me how systems work inside real companies.",
-      "Today I build web projects on my own and keep learning: I’m studying Computer Engineering at the UOC.",
+      "Today I work as a freelance web developer and keep learning: I’m studying Computer Engineering at the UOC.",
     ],
     approach: {
       eyebrow: "My approach",

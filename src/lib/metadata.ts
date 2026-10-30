@@ -3,7 +3,7 @@ import { profile } from "@/content/profile";
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import { href, type RouteKey } from "@/i18n/routes";
 
-const ogLocales: Record<Locale, string> = { es: "es_ES", en: "en_US" };
+const ogLocales: Record<Locale, string> = { es: "es_ES", en: "en_GB" };
 
 /**
  * Metadatos de una página: título, descripción, URL canónica, versiones en cada

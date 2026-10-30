@@ -9,14 +9,14 @@
 @theme {
   /* --- Color -------------------------------------------------------------
      Contraste sobre `paper` (WCAG AA exige 4.5:1 en texto normal):
-     ink 15.9:1 · ink-muted 6.2:1 · accent-ink 4.9:1
+     ink 15.9:1 · ink-muted 6.2:1 · accent-ink 5.6:1 (5.0:1 sobre paper-deep)
      accent 2.7:1 → solo gráficos, fondos y texto muy grande. */
   --color-paper: #f3eee6;
   --color-paper-deep: #e9e2d6;
   --color-ink: #151412;
   --color-ink-muted: #5c574f;
   --color-accent: #ff5a1f;
-  --color-accent-ink: #b5400f;
+  --color-accent-ink: #a63a0c;
 
   /* --- Tipografía ---------------------------------------------------------
      Sin `inline` a propósito: así una sección puede redefinir --font-display

@@ -4,10 +4,10 @@ import { Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google"
 // sin peticiones a Google y sin saltos de diseño mientras cargan.
 
 /** Titulares: serif editorial con carácter. */
+// Sin cursiva: no se usa en la web y ahorra una descarga (~15 KB).
 const display = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
-  style: ["normal", "italic"],
   variable: "--font-instrument-serif",
 });
 
@@ -18,9 +18,12 @@ const sans = Inter_Tight({
 });
 
 /** Datos técnicos: la «voz del desarrollador». */
+// Sin precarga: solo aparece en etiquetas pequeñas, nunca en el contenido principal,
+// así que no compite con las otras fuentes por llegar primero.
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
+  preload: false,
 });
 
 export const fontVariables = [display.variable, sans.variable, mono.variable].join(" ");

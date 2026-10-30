@@ -54,14 +54,14 @@ export const experience: PathEntry[] = [
 
 export const education: PathEntry[] = [
   {
-    title: { es: "Grado en Ingeniería Informática", en: "BSc in Computer Engineering" },
+    title: { es: "Grado en Ingeniería Informática", en: "Bachelor’s in Computer Engineering" },
     place: "UOC",
     start: "2026",
   },
   {
     title: {
       es: "CFGS Desarrollo de Aplicaciones Web",
-      en: "Higher Diploma in Web Application Development",
+      en: "Advanced Vocational Diploma in Web Application Development",
     },
     place: "CESUR",
     start: "2024",
@@ -70,7 +70,7 @@ export const education: PathEntry[] = [
   {
     title: {
       es: "CFGS Marketing y Publicidad",
-      en: "Higher Diploma in Marketing and Advertising",
+      en: "Advanced Vocational Diploma in Marketing and Advertising",
     },
     place: "CESUR",
     start: "2022",
