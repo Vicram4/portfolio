@@ -26,6 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: dict.metadata.description,
     authors: [{ name: profile.name, url: siteUrl }],
     creator: profile.name,
+    // Verificación de propiedad en Google Search Console (código público, no es un secreto).
+    verification: { google: "d9udc0hSfl5WRRV432HhCeZPJ4Asyi5yJrZT4uV5kcM" },
   };
 }
 
