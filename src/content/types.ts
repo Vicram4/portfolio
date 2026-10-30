@@ -16,11 +16,15 @@ export type Project = {
   /** Excluye el caso de estudio de los buscadores (sigue siendo accesible por enlace). */
   noindex?: boolean;
   summary: Localized;
+  /** Naturaleza del proyecto: «Proyecto personal · Demo pública», «Cliente»… */
+  kind: Localized;
   role: Localized;
   duration: Localized;
   /** Tecnologías principales, de más a menos relevante (fichas y tarjetas). */
   stack: string[];
   links: { live?: string; repo?: string };
+  /** Aclaración junto al enlace de la demo (cuentas de prueba, datos ficticios…). */
+  liveNote?: Localized;
   cover: ProjectImage;
 
   // --- Caso de estudio ------------------------------------------------------

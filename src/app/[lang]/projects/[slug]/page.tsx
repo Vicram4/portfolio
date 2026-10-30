@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
         {/* Cabecera */}
         <header className="mt-14 md:mt-20">
           <p className="fade-up label text-accent-ink">
-            {t.caseStudy} · {project.year}
+            {t.caseStudy} · {project.year} · {project.kind[locale]}
           </p>
           <h1 className="mt-6 font-display text-display">
             <span className="mask">
@@ -73,22 +73,29 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               {project.summary[locale]}
             </p>
             <div
-              className="col-span-full flex fade-up flex-wrap gap-4 md:col-span-5 md:justify-end md:self-end"
+              className="col-span-full fade-up md:col-span-5 md:self-end"
               style={{ animationDelay: "350ms" }}
             >
-              {project.links.live && (
-                <ButtonLink href={project.links.live} newTabHint={dict.a11y.opensInNewTab}>
-                  {t.live}
-                </ButtonLink>
-              )}
-              {project.links.repo && (
-                <ButtonLink
-                  href={project.links.repo}
-                  variant="secondary"
-                  newTabHint={dict.a11y.opensInNewTab}
-                >
-                  {t.repo}
-                </ButtonLink>
+              <div className="flex flex-wrap gap-4 md:justify-end">
+                {project.links.live && (
+                  <ButtonLink href={project.links.live} newTabHint={dict.a11y.opensInNewTab}>
+                    {t.live}
+                  </ButtonLink>
+                )}
+                {project.links.repo && (
+                  <ButtonLink
+                    href={project.links.repo}
+                    variant="secondary"
+                    newTabHint={dict.a11y.opensInNewTab}
+                  >
+                    {t.repo}
+                  </ButtonLink>
+                )}
+              </div>
+              {project.liveNote && (
+                <p className="mt-4 text-sm text-ink-muted md:text-right">
+                  {project.liveNote[locale]}
+                </p>
               )}
             </div>
           </div>
@@ -106,6 +113,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
         <div className="mt-14 grid-editorial gap-y-12 md:mt-20">
           <dl className="col-span-full divide-y divide-ink/10 border-y border-ink/10 text-sm md:col-span-6">
             <SpecRow term={t.year}>{project.year}</SpecRow>
+            <SpecRow term={t.kind}>{project.kind[locale]}</SpecRow>
             <SpecRow term={t.duration}>{project.duration[locale]}</SpecRow>
             <SpecRow term={t.role}>{project.role[locale]}</SpecRow>
             <SpecRow term={t.links}>

@@ -88,6 +88,7 @@ function FeaturedProject({
 
         <dl className="mt-8 divide-y divide-ink/10 border-y border-ink/10 text-sm">
           <SpecRow term={t.year}>{project.year}</SpecRow>
+          <SpecRow term={t.kind}>{project.kind[locale]}</SpecRow>
           <SpecRow term={t.role}>{project.role[locale]}</SpecRow>
           <SpecRow term={t.stack}>
             <ul className="flex flex-wrap justify-end gap-1.5">

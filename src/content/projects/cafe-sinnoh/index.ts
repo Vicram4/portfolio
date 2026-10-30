@@ -17,8 +17,12 @@ export const cafeSinnoh: Project = {
   // El autor decidió que Café Sinnoh no aparezca en buscadores (temática Pokémon).
   noindex: true,
   summary: {
-    es: "Aplicación web full stack para una cafetería artesanal: carta, pedidos online, programa de puntos y panel de administración.",
-    en: "Full stack web app for an artisan coffee shop: menu, online ordering, a loyalty points programme and an admin dashboard.",
+    es: "Aplicación web full stack para una cafetería artesanal ficticia: carta, pedidos online, programa de puntos y panel de administración.",
+    en: "Full stack web app for a fictional artisan coffee shop: menu, online ordering, a loyalty points programme and an admin dashboard.",
+  },
+  kind: {
+    es: "Proyecto personal · Demo pública",
+    en: "Personal project · Public demo",
   },
   role: {
     es: "Producto, diseño y desarrollo",
@@ -32,6 +36,10 @@ export const cafeSinnoh: Project = {
   links: {
     live: "https://cafe-sinnoh.vercel.app",
     repo: "https://github.com/Vicram4/cafe-sinnoh",
+  },
+  liveNote: {
+    es: "Demo pública: entra como cliente o como administrador con un clic, sin registrarte. Los pedidos no son reales y los datos se reinician cada día.",
+    en: "Public demo: sign in as a customer or as an admin with one click, no sign-up needed. Orders aren’t real and the data resets every day.",
   },
   cover: {
     src: cover,

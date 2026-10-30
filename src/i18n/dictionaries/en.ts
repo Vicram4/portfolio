@@ -67,6 +67,7 @@ const en: Dictionary = {
   },
   project: {
     year: "Year",
+    kind: "Type",
     role: "Role",
     duration: "Duration",
     stack: "Stack",

@@ -70,6 +70,7 @@ const es = {
   /** Etiquetas comunes de un proyecto (tarjetas, fichas y caso de estudio). */
   project: {
     year: "Año",
+    kind: "Tipo",
     role: "Rol",
     duration: "Duración",
     stack: "Stack",
