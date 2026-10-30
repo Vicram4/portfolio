@@ -1,5 +1,5 @@
-// TODO(Fase 4): sustituir por tus datos reales.
+// TODO(Fase 4): completar con el resto de tus datos reales.
 export const profile = {
-  name: "Nombre Apellido",
+  name: "Víctor Ramos",
   role: "Full Stack Developer",
 } as const;
