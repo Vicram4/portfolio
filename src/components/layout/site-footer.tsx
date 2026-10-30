@@ -1,7 +1,8 @@
 import { cacheLife } from "next/cache";
 import { TextLink } from "@/components/ui/text-link";
 import { profile } from "@/content/profile";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { href } from "@/i18n/routes";
 
 export async function SiteFooter() {
   // El año se calcula al generar la página y se renueva a diario,
@@ -9,6 +10,7 @@ export async function SiteFooter() {
   "use cache";
   cacheLife("days");
 
+  const locale = await getLocale();
   const dict = await getDictionary();
   const newTab = dict.a11y.opensInNewTab;
 
@@ -35,6 +37,11 @@ export async function SiteFooter() {
               </TextLink>
             </li>
           )}
+          <li>
+            <TextLink href={href(locale, "privacy")} className="text-ink-muted">
+              {dict.privacy.title}
+            </TextLink>
+          </li>
         </ul>
       </div>
     </footer>

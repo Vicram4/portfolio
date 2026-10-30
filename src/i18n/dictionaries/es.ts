@@ -100,6 +100,87 @@ const es = {
     copied: "Copiado",
     copiedAnnouncement: "Email copiado al portapapeles",
   },
+  contact: {
+    eyebrow: "Contacto",
+    title: "Cuéntame qué tienes en mente",
+    intro:
+      "Una oferta de trabajo, un proyecto web o una simple pregunta: escríbeme y te responderé lo antes posible.",
+    channels: "Canales directos",
+    location: "Ubicación",
+    form: {
+      title: "Formulario",
+      topic: "¿Sobre qué quieres hablar?",
+      topics: {
+        job: "Oferta de trabajo",
+        project: "Proyecto web",
+        other: "Otro",
+      },
+      name: "Nombre",
+      email: "Email",
+      message: "Mensaje",
+      messagePlaceholder: "Cuéntame lo esencial: qué necesitas, plazos, enlaces…",
+      privacyBefore: "He leído y acepto la",
+      privacyLink: "política de privacidad",
+      honeypot: "No rellenes este campo",
+      submit: "Enviar mensaje",
+      sending: "Enviando…",
+      errors: {
+        topic: "Elige un tema.",
+        name: "Escribe tu nombre (entre 2 y 100 caracteres).",
+        email: "Escribe un email válido.",
+        message: "El mensaje debe tener entre 10 y 5.000 caracteres.",
+        privacy: "Necesito que aceptes la política de privacidad para responderte.",
+        tooFast:
+          "Parece que el envío ha sido demasiado rápido. Espera unos segundos y vuelve a intentarlo.",
+        server:
+          "No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme directamente al email.",
+        summary: "Revisa los campos marcados.",
+      },
+      success: {
+        title: "¡Mensaje enviado!",
+        text: "Gracias por escribirme. Te responderé lo antes posible al email que has indicado.",
+        again: "Enviar otro mensaje",
+      },
+    },
+  },
+  privacy: {
+    title: "Política de privacidad",
+    updated: "Última actualización: octubre de 2026",
+    sections: [
+      {
+        title: "Responsable",
+        text: "Víctor Ramos Berzosa. Contacto: victorramos.devs@gmail.com.",
+      },
+      {
+        title: "Qué datos recojo",
+        text: "Solo los que envías en el formulario de contacto: tu nombre, tu email, el tema y el mensaje.",
+      },
+      {
+        title: "Para qué los uso",
+        text: "Únicamente para leer y responder a tu mensaje. No los uso con fines publicitarios ni los cedo a terceros.",
+      },
+      {
+        title: "Base legal",
+        text: "Tu consentimiento, que das al marcar la casilla del formulario (artículo 6.1.a del RGPD). Puedes retirarlo en cualquier momento.",
+      },
+      {
+        title: "Quién más los trata",
+        text: "El mensaje se entrega a mi correo a través de Resend, Inc. (Estados Unidos), que actúa como encargado del tratamiento solo para ese envío. La web está alojada en Vercel Inc. (Estados Unidos), que puede tratar datos técnicos de conexión, como la dirección IP, para servir la web y protegerla. Ambos ofrecen las garantías que exige el RGPD para las transferencias internacionales.",
+      },
+      {
+        title: "Cuánto tiempo los conservo",
+        text: "El tiempo necesario para atender tu consulta y, como máximo, doce meses, salvo que de ella surja una relación profesional.",
+      },
+      {
+        title: "Tus derechos",
+        text: "Puedes solicitar el acceso, la rectificación, la supresión, la oposición, la limitación o la portabilidad de tus datos escribiendo a victorramos.devs@gmail.com. Si consideras que no se han respetado, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).",
+      },
+      {
+        title: "Cookies",
+        text: "Esta web solo usa una cookie técnica que recuerda el idioma que has elegido. No utiliza cookies de análisis ni de publicidad.",
+      },
+    ],
+  },
   placeholder: "Sección en construcción.",
   notFound: {
     title: "Página no encontrada",
