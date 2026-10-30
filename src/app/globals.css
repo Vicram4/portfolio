@@ -1,27 +1,149 @@
 @import "tailwindcss";
 
-/*
- * Tokens de diseño (provisionales hasta la Fase 3).
- * Cada variable genera sus clases de Tailwind: --color-paper → bg-paper, text-paper…
- *
- * Contraste sobre `paper` (WCAG AA exige 4.5:1 en texto normal):
- *   ink 15.9:1 · ink-muted 6.2:1 · accent-ink 4.9:1 · accent 2.7:1 (solo gráficos y texto grande)
- */
+/* ==========================================================================
+   SISTEMA DE DISEÑO — «Taller editorial»
+   Cada variable de @theme genera clases de Tailwind:
+   --color-paper → bg-paper, text-paper… · --text-display → text-display
+   ========================================================================== */
+
 @theme {
+  /* --- Color -------------------------------------------------------------
+     Contraste sobre `paper` (WCAG AA exige 4.5:1 en texto normal):
+     ink 15.9:1 · ink-muted 6.2:1 · accent-ink 4.9:1
+     accent 2.7:1 → solo gráficos, fondos y texto muy grande. */
   --color-paper: #f3eee6;
+  --color-paper-deep: #e9e2d6;
   --color-ink: #151412;
   --color-ink-muted: #5c574f;
   --color-accent: #ff5a1f;
   --color-accent-ink: #b5400f;
+
+  /* --- Tipografía ---------------------------------------------------------
+     Sin `inline` a propósito: así una sección puede redefinir --font-display
+     (lo usa la comparativa de /sistema). */
+  --font-display: var(--font-instrument-serif), "Times New Roman", serif;
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Escala fluida: cada tamaño crece con la pantalla entre un mínimo y un máximo. */
+  --text-display: clamp(3.5rem, 1.25rem + 9vw, 11rem);
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.015em;
+
+  --text-headline: clamp(2.5rem, 1.5rem + 4.25vw, 6rem);
+  --text-headline--line-height: 0.95;
+  --text-headline--letter-spacing: -0.005em;
+
+  --text-title: clamp(1.75rem, 1.35rem + 1.6vw, 2.75rem);
+  --text-title--line-height: 1.05;
+  --text-title--letter-spacing: 0em;
+
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  /* --- Movimiento --------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
+
+/* ==========================================================================
+   Utilidades propias
+   ========================================================================== */
+
+/** Contenedor común: ancho máximo y márgenes laterales fluidos. */
+@utility shell {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/** Retícula editorial: 4 columnas en móvil, 12 desde tablet. */
+@utility grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 1.5rem);
+
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/** Espaciado vertical entre secciones. */
+@utility section-y {
+  padding-block: clamp(5rem, 3rem + 8vw, 10rem);
+}
+
+/** Etiqueta técnica en mono: «01 — PROYECTOS», «NEXT.JS · 2026». */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+}
+
+/** Subrayado que se dibuja de izquierda a derecha al pasar el ratón. */
+@utility link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 500ms var(--ease-out-expo);
+
+  &:hover,
+  &:focus-visible,
+  &[aria-current="page"] {
+    background-position: 0% 100%;
+    background-size: 100% 1px;
+  }
+}
+
+/**
+ * Aparición al hacer scroll, solo con CSS (sin JavaScript).
+ * En navegadores sin soporte, o si el usuario pide reducir el movimiento,
+ * el contenido se muestra sin animación.
+ */
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
 
 html {
   color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Con el menú móvil abierto, la página de fondo no se desplaza. */
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {

@@ -10,5 +10,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const dict = await getDictionary();
 
-  return <PagePlaceholder index="03" title={dict.nav.contact} note={dict.placeholder} />;
+  return (
+    <PagePlaceholder
+      index="03"
+      eyebrow={dict.nav.contact}
+      title={dict.nav.contact}
+      note={dict.placeholder}
+    />
+  );
 }

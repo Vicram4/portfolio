@@ -10,6 +10,11 @@ const es = {
     skipToContent: "Saltar al contenido",
     mainNav: "Navegación principal",
     languageSwitcher: "Idioma",
+    opensInNewTab: "(se abre en una pestaña nueva)",
+  },
+  menu: {
+    open: "Menú",
+    close: "Cerrar",
   },
   nav: {
     home: "Inicio",

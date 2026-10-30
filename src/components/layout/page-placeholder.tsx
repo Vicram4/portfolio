@@ -1,20 +1,21 @@
+import { SectionHeading } from "@/components/ui/section-heading";
+
 // Temporal: se sustituye por el contenido real de cada sección en su fase.
 export function PagePlaceholder({
   index,
+  eyebrow,
   title,
   note,
 }: {
   index: string;
+  eyebrow: string;
   title: string;
   note: string;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <p className="font-mono text-sm text-accent-ink">{index}</p>
-      <h1 className="mt-2 text-4xl font-semibold tracking-tight break-words sm:text-5xl">
-        {title}
-      </h1>
-      <p className="mt-6 text-ink-muted">{note}</p>
+    <section className="shell section-y">
+      <SectionHeading as="h1" index={index} eyebrow={eyebrow} title={title} />
+      <p className="mt-10 text-lead text-ink-muted">{note}</p>
     </section>
   );
 }

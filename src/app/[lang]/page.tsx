@@ -5,5 +5,12 @@ import { getDictionary } from "@/i18n/get-dictionary";
 export default async function HomePage() {
   const dict = await getDictionary();
 
-  return <PagePlaceholder index={profile.role} title={profile.name} note={dict.placeholder} />;
+  return (
+    <PagePlaceholder
+      index="00"
+      eyebrow={profile.role}
+      title={profile.name}
+      note={dict.placeholder}
+    />
+  );
 }

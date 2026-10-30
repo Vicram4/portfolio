@@ -10,16 +10,21 @@ export function LanguageSwitcher({ current, label }: { current: Locale; label: s
 
   return (
     <nav aria-label={label}>
-      <ul className="flex gap-1 font-mono text-sm">
-        {locales.map((locale) => (
-          <li key={locale}>
+      <ul className="flex items-center gap-1 label">
+        {locales.map((locale, index) => (
+          <li key={locale} className="flex items-center gap-1">
+            {index > 0 && (
+              <span aria-hidden="true" className="text-ink/30">
+                /
+              </span>
+            )}
             <Link
               href={localizePathname(pathname, locale)}
               hrefLang={locale}
               lang={locale}
               aria-label={localeNames[locale]}
               aria-current={locale === current ? "true" : undefined}
-              className="px-1.5 py-1 uppercase opacity-50 hover:opacity-100 aria-[current=true]:underline aria-[current=true]:underline-offset-4 aria-[current=true]:opacity-100"
+              className="p-1 text-ink-muted transition-colors hover:text-ink aria-[current=true]:text-ink"
             >
               {locale}
             </Link>

@@ -9,8 +9,11 @@ export async function SiteFooter() {
 
   return (
     <footer className="border-t border-ink/10">
-      <div className="mx-auto max-w-7xl px-6 py-6 font-mono text-xs text-ink-muted">
-        © {new Date().getFullYear()} {profile.name}
+      <div className="shell flex flex-wrap justify-between gap-4 py-8 label text-ink-muted">
+        <p>
+          © {new Date().getFullYear()} {profile.name}
+        </p>
+        <p>{profile.role}</p>
       </div>
     </footer>
   );

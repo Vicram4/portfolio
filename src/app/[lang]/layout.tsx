@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { profile } from "@/content/profile";
 import { locales } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { fontVariables } from "@/lib/fonts";
 import "../globals.css";
 
 // Genera en la compilación una versión estática de la web por idioma.
@@ -28,7 +29,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   const dict = await getDictionary();
 
   return (
-    <html lang={locale} className="h-full antialiased">
+    <html lang={locale} className={`${fontVariables} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"

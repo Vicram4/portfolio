@@ -8,6 +8,11 @@ const en: Dictionary = {
     skipToContent: "Skip to content",
     mainNav: "Main navigation",
     languageSwitcher: "Language",
+    opensInNewTab: "(opens in a new tab)",
+  },
+  menu: {
+    open: "Menu",
+    close: "Close",
   },
   nav: {
     home: "Home",
