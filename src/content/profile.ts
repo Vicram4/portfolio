@@ -5,7 +5,6 @@ export const profile = {
   email: "victorramos.devs@gmail.com",
   links: {
     github: "https://github.com/Vicram4",
-    // Pendiente: añadir la URL del perfil para que aparezca en el pie.
-    linkedin: undefined as string | undefined,
+    linkedin: "https://www.linkedin.com/in/victor-ramos-berzosa-90651b238/" as string | undefined,
   },
 } as const;
