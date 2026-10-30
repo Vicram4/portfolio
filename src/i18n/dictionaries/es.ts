@@ -100,6 +100,46 @@ const es = {
     copied: "Copiado",
     copiedAnnouncement: "Email copiado al portapapeles",
   },
+  about: {
+    eyebrow: "Sobre mí",
+    title: "Desarrollador con mirada de negocio",
+    intro: [
+      "Soy Víctor Ramos, desarrollador full stack en Madrid. Llegué a la programación desde el marketing: primero me formé en Marketing y Publicidad y trabajé analizando datos y gestionando redes sociales; después estudié Desarrollo de Aplicaciones Web y di el salto al desarrollo.",
+      "Esa combinación define cómo trabajo. No solo construyo webs y aplicaciones que funcionan: también pienso en a quién se dirigen, qué deben comunicar y cómo saber si lo consiguen. Mi etapa como integrador SAP me enseñó, además, cómo funcionan los sistemas en empresas reales.",
+      "Hoy desarrollo proyectos web por mi cuenta y sigo formándome: estudio Ingeniería Informática en la UOC.",
+    ],
+    approach: {
+      eyebrow: "Mi enfoque",
+      title: "Cómo entiendo el trabajo",
+      items: [
+        {
+          title: "Producto antes que código",
+          text: "Empiezo por el objetivo y por las personas que van a usarlo. La tecnología se elige después, al servicio de eso.",
+        },
+        {
+          title: "La calidad que no se ve",
+          text: "Accesibilidad, rendimiento, seguridad y tests: lo que hace que un proyecto siga funcionando bien con el tiempo.",
+        },
+        {
+          title: "IA como herramienta, criterio propio",
+          text: "Uso la IA para avanzar más rápido, pero cada decisión y cada pieza pasan por mi revisión antes de darlas por buenas.",
+        },
+      ],
+    },
+    path: {
+      eyebrow: "Trayectoria",
+      title: "Experiencia y formación",
+      experience: "Experiencia",
+      education: "Formación",
+      present: "Actualidad",
+      ongoing: "En curso",
+    },
+    skills: {
+      eyebrow: "Tecnologías",
+      title: "Con qué trabajo",
+      note: "Solo lo que respaldan mis proyectos y trabajos reales. La lista crece con cada proyecto nuevo.",
+    },
+  },
   contact: {
     eyebrow: "Contacto",
     title: "Cuéntame qué tienes en mente",
@@ -181,7 +221,6 @@ const es = {
       },
     ],
   },
-  placeholder: "Sección en construcción.",
   notFound: {
     title: "Página no encontrada",
     description: "La página que buscas no existe o ha cambiado de dirección.",

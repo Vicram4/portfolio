@@ -97,6 +97,46 @@ const en: Dictionary = {
     copied: "Copied",
     copiedAnnouncement: "Email copied to clipboard",
   },
+  about: {
+    eyebrow: "About",
+    title: "A developer with a business mindset",
+    intro: [
+      "I’m Víctor Ramos, a full stack developer based in Madrid. I came to programming from marketing: I first trained in Marketing and Advertising and worked analysing data and managing social media; then I studied Web Application Development and made the move into development.",
+      "That mix shapes how I work. I don’t just build websites and apps that work: I also think about who they’re for, what they need to communicate and how to tell whether they succeed. My time as an SAP integrator also taught me how systems work inside real companies.",
+      "Today I build web projects on my own and keep learning: I’m studying Computer Engineering at the UOC.",
+    ],
+    approach: {
+      eyebrow: "My approach",
+      title: "How I see the work",
+      items: [
+        {
+          title: "Product before code",
+          text: "I start with the goal and the people who will use it. The technology comes afterwards, in service of that.",
+        },
+        {
+          title: "The quality you don’t see",
+          text: "Accessibility, performance, security and tests: what keeps a project working well over time.",
+        },
+        {
+          title: "AI as a tool, my own judgement",
+          text: "I use AI to move faster, but every decision and every piece goes through my review before I sign it off.",
+        },
+      ],
+    },
+    path: {
+      eyebrow: "Background",
+      title: "Experience and education",
+      experience: "Experience",
+      education: "Education",
+      present: "Present",
+      ongoing: "Ongoing",
+    },
+    skills: {
+      eyebrow: "Technologies",
+      title: "What I work with",
+      note: "Only what my real projects and jobs back up. The list grows with every new project.",
+    },
+  },
   contact: {
     eyebrow: "Contact",
     title: "Tell me what you have in mind",
@@ -176,7 +216,6 @@ const en: Dictionary = {
       },
     ],
   },
-  placeholder: "Section under construction.",
   notFound: {
     title: "Page not found",
     description: "The page you are looking for does not exist or has moved.",
