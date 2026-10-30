@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Tokens de diseño (provisionales hasta la Fase 3).
+ * Cada variable genera sus clases de Tailwind: --color-paper → bg-paper, text-paper…
+ *
+ * Contraste sobre `paper` (WCAG AA exige 4.5:1 en texto normal):
+ *   ink 15.9:1 · ink-muted 6.2:1 · accent-ink 4.9:1 · accent 2.7:1 (solo gráficos y texto grande)
+ */
+@theme {
+  --color-paper: #f3eee6;
+  --color-ink: #151412;
+  --color-ink-muted: #5c574f;
+  --color-accent: #ff5a1f;
+  --color-accent-ink: #b5400f;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
