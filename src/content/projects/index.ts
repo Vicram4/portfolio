@@ -1,5 +1,6 @@
 import type { Project } from "@/content/types";
 import { cafeSinnoh } from "./cafe-sinnoh";
+import { peluqueriaArriaga } from "./peluqueria-arriaga";
 import { projectSlugs } from "./slugs";
 
 /**
@@ -7,7 +8,7 @@ import { projectSlugs } from "./slugs";
  * Para añadir uno: crear su carpeta (index.ts + imágenes), añadirlo aquí
  * y añadir su slug en slugs.ts.
  */
-export const projects: Project[] = [cafeSinnoh];
+export const projects: Project[] = [cafeSinnoh, peluqueriaArriaga];
 
 // Si el registro y slugs.ts no coinciden, la build falla con un mensaje claro.
 const registered = projects
