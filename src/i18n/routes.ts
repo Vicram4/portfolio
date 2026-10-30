@@ -13,8 +13,6 @@ export const routes = {
   about: { es: "sobre-mi", en: "about" },
   contact: { es: "contacto", en: "contact" },
   privacy: { es: "privacidad", en: "privacy" },
-  // Interna (Fase 3): catálogo del sistema de diseño. Fuera del menú y sin indexar.
-  system: { es: "sistema", en: "system" },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type RouteKey = keyof typeof routes;

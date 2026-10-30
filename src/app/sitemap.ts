@@ -5,7 +5,7 @@ import { href, type RouteKey } from "@/i18n/routes";
 import { siteUrl } from "@/lib/site";
 
 // Mapa del sitio para buscadores: cada página en cada idioma, con sus alternativas.
-// Excluye la página interna /sistema y los proyectos marcados como noindex.
+// Excluye los proyectos marcados como noindex.
 const pages: { route: RouteKey; rest?: string[] }[] = [
   { route: "home" },
   { route: "projects" },
