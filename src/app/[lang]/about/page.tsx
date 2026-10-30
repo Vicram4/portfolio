@@ -124,7 +124,10 @@ function PathList({
             </p>
             <div className="col-span-full md:col-span-4">
               <p className="font-display text-title">{entry.title[locale]}</p>
-              <p className="mt-1 text-sm text-accent-ink">{entry.place}</p>
+              <p className="mt-1 text-sm text-accent-ink">
+                {entry.place}
+                {entry.kind && <span className="text-ink-muted"> · {entry.kind[locale]}</span>}
+              </p>
             </div>
             {entry.description && (
               <p className="col-span-full text-ink-muted md:col-span-5 md:pt-1.5">

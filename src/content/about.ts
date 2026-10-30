@@ -7,6 +7,8 @@ import type { Localized } from "./types";
 export type PathEntry = {
   title: Localized;
   place: string;
+  /** Modalidad, si no es un empleo normal: «Prácticas», «Freelance»… */
+  kind?: Localized;
   start: string;
   end?: string;
   description?: Localized;
@@ -26,6 +28,7 @@ export const experience: PathEntry[] = [
   {
     title: { es: "Integrador SAP", en: "SAP Integrator" },
     place: "Inetum",
+    kind: { es: "Prácticas", en: "Internship" },
     start: "2025-09",
     end: "2026-06",
     description: {
@@ -39,6 +42,7 @@ export const experience: PathEntry[] = [
       en: "Marketing Analyst and Community Manager",
     },
     place: "AJE Madrid",
+    kind: { es: "Prácticas", en: "Internship" },
     start: "2024-03",
     end: "2024-09",
     description: {
