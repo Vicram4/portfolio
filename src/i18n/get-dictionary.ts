@@ -18,5 +18,13 @@ export async function getLocale(): Promise<Locale> {
 }
 
 export async function getDictionary(): Promise<Dictionary> {
-  return dictionaries[await getLocale()]();
+  return loadDictionary(await getLocale());
+}
+
+/**
+ * Diccionario de un idioma concreto. Para donde `next/root-params` no funciona
+ * (imágenes generadas, rutas de API): el idioma llega por `params`.
+ */
+export function loadDictionary(locale: Locale): Promise<Dictionary> {
+  return dictionaries[locale]();
 }

@@ -8,10 +8,17 @@ import { profile } from "@/content/profile";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = await getDictionary();
-  return { title: dict.nav.about, description: dict.about.intro[0] };
+  return pageMetadata({
+    locale,
+    route: "about",
+    title: dict.nav.about,
+    description: dict.about.intro[0],
+  });
 }
 
 export default async function AboutPage() {

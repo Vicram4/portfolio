@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dict = await getDictionary();
-  return { title: dict.privacy.title };
+  const locale = await getLocale();
+  const { privacy } = await getDictionary();
+  return pageMetadata({
+    locale,
+    route: "privacy",
+    title: privacy.title,
+    description: privacy.sections[2].text,
+  });
 }
 
 export default async function PrivacyPage() {

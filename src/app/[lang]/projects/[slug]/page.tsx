@@ -13,6 +13,7 @@ import { getProject, projects } from "@/content/projects";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { href } from "@/i18n/routes";
 import { cn } from "@/lib/cn";
+import { pageMetadata } from "@/lib/metadata";
 
 // Una página estática por proyecto (y por idioma, heredado de [lang]).
 export function generateStaticParams() {
@@ -27,8 +28,13 @@ export async function generateMetadata({
 
   const locale = await getLocale();
   return {
-    title: project.title,
-    description: project.summary[locale],
+    ...pageMetadata({
+      locale,
+      route: "projects",
+      rest: [project.slug],
+      title: project.title,
+      description: project.summary[locale],
+    }),
     robots: project.noindex ? { index: false, follow: true } : undefined,
   };
 }

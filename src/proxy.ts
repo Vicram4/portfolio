@@ -40,6 +40,8 @@ export function proxy(request: NextRequest) {
       response = NextResponse.rewrite(url);
     } else if (!key && isSectionKey(segment)) {
       // "/es/projects" → "/es/proyectos": una sola URL pública por página.
+      // (También las imágenes para compartir, que Next.js anuncia con la ruta interna:
+      // las redes sociales siguen la redirección y reciben la imagen ya generada.)
       const url = request.nextUrl.clone();
       url.pathname = href(locale, segment, ...rest);
       return NextResponse.redirect(url, 308);
@@ -59,9 +61,11 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
-/** ¿Es "<slug>" (un solo segmento) de un proyecto publicado? */
+/** ¿Es "<slug>" de un proyecto publicado (o su imagen para compartir)? */
 function isProjectPath(rest: string[]): boolean {
-  return rest.length === 1 && (projectSlugs as readonly string[]).includes(rest[0]);
+  const [slug, extra, ...more] = rest;
+  const validExtra = extra === undefined || extra === "opengraph-image";
+  return validExtra && more.length === 0 && (projectSlugs as readonly string[]).includes(slug);
 }
 
 /** Cookie (última elección) → idioma del navegador → español. */
@@ -89,7 +93,7 @@ function detectLocale(request: NextRequest): Locale {
 }
 
 export const config = {
-  // Todo excepto archivos internos de Next/Vercel y archivos con extensión
-  // (imágenes, PDF, favicon…), que se sirven tal cual.
-  matcher: ["/((?!_next|_vercel|.*\\..*).*)"],
+  // Todo excepto archivos internos de Next/Vercel, los iconos generados
+  // (/icon, /apple-icon) y archivos con extensión (imágenes, PDF, sitemap.xml…).
+  matcher: ["/((?!_next|_vercel|icon|apple-icon|.*\\..*).*)"],
 };

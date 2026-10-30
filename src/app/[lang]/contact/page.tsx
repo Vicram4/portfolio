@@ -6,10 +6,17 @@ import { TextLink } from "@/components/ui/text-link";
 import { profile } from "@/content/profile";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { href } from "@/i18n/routes";
+import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = await getDictionary();
-  return { title: dict.nav.contact, description: dict.contact.intro };
+  return pageMetadata({
+    locale,
+    route: "contact",
+    title: dict.nav.contact,
+    description: dict.contact.intro,
+  });
 }
 
 export default async function ContactPage() {

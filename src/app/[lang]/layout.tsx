@@ -5,6 +5,7 @@ import { profile } from "@/content/profile";
 import { locales } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { fontVariables } from "@/lib/fonts";
+import { siteUrl } from "@/lib/site";
 import "../globals.css";
 
 // Genera en la compilación una versión estática de la web por idioma.
@@ -16,11 +17,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary();
 
   return {
+    // Base para completar las URLs relativas (canónicas, imágenes para compartir…).
+    metadataBase: new URL(siteUrl),
     title: {
       default: `${profile.name} — ${profile.role}`,
       template: `%s · ${profile.name}`,
     },
     description: dict.metadata.description,
+    authors: [{ name: profile.name, url: siteUrl }],
+    creator: profile.name,
     // TEMPORAL hasta el lanzamiento (Fase 8): la web ya es accesible en Vercel,
     // pero no debe aparecer en buscadores hasta que esté terminada.
     robots: { index: false, follow: false },

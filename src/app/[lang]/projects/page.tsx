@@ -6,10 +6,17 @@ import { Tag } from "@/components/ui/tag";
 import { projects } from "@/content/projects";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { href } from "@/i18n/routes";
+import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = await getDictionary();
-  return { title: dict.nav.projects, description: dict.projects.title };
+  return pageMetadata({
+    locale,
+    route: "projects",
+    title: dict.nav.projects,
+    description: dict.projects.title,
+  });
 }
 
 export default async function ProjectsPage() {
