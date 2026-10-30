@@ -3,11 +3,13 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { ArrowIcon } from "./arrow-icon";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "inverse";
 
 const variants: Record<Variant, string> = {
   primary: "bg-ink text-paper hover:bg-accent hover:text-ink",
   secondary: "border border-ink/25 hover:border-ink hover:bg-ink hover:text-paper",
+  /** Para fondos oscuros (bloque de cierre). */
+  inverse: "bg-paper text-ink hover:bg-accent",
 };
 
 /** Estilos de botón reutilizables también en <button> (p. ej. el formulario). */

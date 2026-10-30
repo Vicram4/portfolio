@@ -26,7 +26,7 @@
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
   /* Escala fluida: cada tamaño crece con la pantalla entre un mínimo y un máximo. */
-  --text-display: clamp(3.5rem, 1.25rem + 9vw, 11rem);
+  --text-display: clamp(4.5rem, 1.75rem + 9vw, 11rem);
   --text-display--line-height: 0.88;
   --text-display--letter-spacing: -0.015em;
 
@@ -122,6 +122,60 @@
   from {
     opacity: 0;
     transform: translateY(2rem);
+  }
+}
+
+/*
+ * Animaciones de entrada (al cargar la página). El retraso se ajusta con
+ * `style={{ animationDelay }}` para encadenarlas.
+ */
+
+/** Texto que asoma desde abajo tras una máscara. Va dentro de `.mask`. */
+@utility rise {
+  display: block;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rise 1.2s var(--ease-out-expo) both;
+  }
+}
+
+/** Contenedor de `.rise`: oculta lo que sobresale, con margen para tildes y descendentes. */
+@utility mask {
+  display: block;
+  overflow: clip;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+}
+
+@utility fade-up {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fade-up 1s var(--ease-out-expo) both;
+  }
+}
+
+/** Línea que se dibuja de izquierda a derecha. */
+@utility draw {
+  transform-origin: left;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: draw 1.4s var(--ease-in-out-quart) both;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(110%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
   }
 }
 

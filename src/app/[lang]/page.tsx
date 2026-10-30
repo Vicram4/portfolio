@@ -1,16 +1,17 @@
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
-import { profile } from "@/content/profile";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { ClosingCta } from "@/components/home/closing-cta";
+import { FeaturedProjects } from "@/components/home/featured-projects";
+import { Hero } from "@/components/home/hero";
+import { Process } from "@/components/home/process";
+import { Services } from "@/components/home/services";
 
-export default async function HomePage() {
-  const dict = await getDictionary();
-
+export default function HomePage() {
   return (
-    <PagePlaceholder
-      index="00"
-      eyebrow={profile.role}
-      title={profile.name}
-      note={dict.placeholder}
-    />
+    <>
+      <Hero />
+      <FeaturedProjects />
+      <Services />
+      <Process />
+      <ClosingCta />
+    </>
   );
 }
