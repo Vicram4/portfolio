@@ -22,7 +22,7 @@ export function ProjectLinks({
       ) : (
         project.links.live && (
           <TextLink href={project.links.live} external newTabHint={newTab}>
-            {dict.project.live}
+            {project.liveKind === "site" ? dict.project.liveSite : dict.project.live}
           </TextLink>
         )
       )}

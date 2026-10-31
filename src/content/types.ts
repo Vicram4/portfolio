@@ -23,6 +23,8 @@ export type Project = {
   /** Tecnologías principales, de más a menos relevante (fichas y tarjetas). */
   stack: string[];
   links: { live?: string; repo?: string };
+  /** Qué es el enlace `live`: una demo (por defecto) o una web real («Ver web»). */
+  liveKind?: "demo" | "site";
   /** Aclaración junto al enlace de la demo (cuentas de prueba, datos ficticios…). */
   liveNote?: Localized;
   /**

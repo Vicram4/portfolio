@@ -76,6 +76,7 @@ const es = {
     stack: "Stack",
     links: "Enlaces",
     live: "Ver demo",
+    liveSite: "Ver web",
     maintenance: "Demo en mantenimiento",
     repo: "Código en GitHub",
     viewCase: "Ver caso de estudio",

@@ -73,6 +73,7 @@ const en: Dictionary = {
     stack: "Stack",
     links: "Links",
     live: "Live demo",
+    liveSite: "Visit site",
     maintenance: "Demo under maintenance",
     repo: "Code on GitHub",
     viewCase: "View case study",

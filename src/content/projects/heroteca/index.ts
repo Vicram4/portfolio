@@ -33,6 +33,7 @@ export const heroteca: Project = {
     live: "https://heroteca.vercel.app",
     repo: "https://github.com/Vicram4/heroteca",
   },
+  liveKind: "site",
   liveNote: {
     es: "Pulsa / en cualquier página para buscar. La web está solo en español.",
     en: "Press / on any page to search. The site is in Spanish only.",

@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
                 ) : (
                   project.links.live && (
                     <ButtonLink href={project.links.live} newTabHint={dict.a11y.opensInNewTab}>
-                      {t.live}
+                      {project.liveKind === "site" ? t.liveSite : t.live}
                     </ButtonLink>
                   )
                 )}
