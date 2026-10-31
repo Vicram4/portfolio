@@ -53,6 +53,8 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
   const dict = await getDictionary();
   const t = dict.project;
   const s = dict.projects.sections;
+  // En mantenimiento, el aviso sustituye a la nota habitual de la demo.
+  const liveNote = project.maintenance ?? project.liveNote;
 
   return (
     <>
@@ -83,10 +85,17 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               style={{ animationDelay: "350ms" }}
             >
               <div className="flex flex-wrap gap-4 md:justify-end">
-                {project.links.live && (
-                  <ButtonLink href={project.links.live} newTabHint={dict.a11y.opensInNewTab}>
-                    {t.live}
-                  </ButtonLink>
+                {project.maintenance ? (
+                  <p className="inline-flex items-center gap-3 border border-dashed border-ink/30 px-6 py-3.5 text-sm font-medium text-ink-muted">
+                    <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+                    {t.maintenance}
+                  </p>
+                ) : (
+                  project.links.live && (
+                    <ButtonLink href={project.links.live} newTabHint={dict.a11y.opensInNewTab}>
+                      {t.live}
+                    </ButtonLink>
+                  )
                 )}
                 {project.links.repo && (
                   <ButtonLink
@@ -98,10 +107,8 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
                   </ButtonLink>
                 )}
               </div>
-              {project.liveNote && (
-                <p className="mt-4 text-sm text-ink-muted md:text-right">
-                  {project.liveNote[locale]}
-                </p>
+              {liveNote && (
+                <p className="mt-4 text-sm text-ink-muted md:text-right">{liveNote[locale]}</p>
               )}
             </div>
           </div>

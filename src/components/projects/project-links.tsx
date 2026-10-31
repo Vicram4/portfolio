@@ -17,10 +17,14 @@ export function ProjectLinks({
 
   return (
     <div className={cn("flex flex-wrap gap-x-6 gap-y-3", className)}>
-      {project.links.live && (
-        <TextLink href={project.links.live} external newTabHint={newTab}>
-          {dict.project.live}
-        </TextLink>
+      {project.maintenance ? (
+        <span>{dict.project.maintenance}</span>
+      ) : (
+        project.links.live && (
+          <TextLink href={project.links.live} external newTabHint={newTab}>
+            {dict.project.live}
+          </TextLink>
+        )
       )}
       {project.links.repo && (
         <TextLink href={project.links.repo} external newTabHint={newTab}>

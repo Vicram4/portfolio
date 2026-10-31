@@ -41,6 +41,11 @@ export const cafeSinnoh: Project = {
     es: "Demo pública: entra como cliente o como administrador con un clic, sin registrarte. Los pedidos no son reales y los datos se reinician cada día.",
     en: "Public demo: sign in as a customer or as an admin with one click, no sign-up needed. Orders aren’t real and the data resets every day.",
   },
+  // Temporal: borrar cuando Northflank vuelva a ser fiable para reactivar la demo.
+  maintenance: {
+    es: "La demo está en pausa por un incidente de seguridad en Northflank, el proveedor que aloja el backend. Por precaución he cambiado las credenciales del proyecto y la demo volverá cuando el servicio sea fiable. Mientras tanto, puedes ver el código y las capturas.",
+    en: "The demo is paused due to a security incident at Northflank, the provider hosting the backend. As a precaution I’ve changed the project’s credentials, and the demo will be back once the service is reliable. In the meantime, you can browse the code and the screenshots.",
+  },
   cover: {
     src: cover,
     alt: {
@@ -159,6 +164,16 @@ export const cafeSinnoh: Project = {
       text: {
         es: "La web se divide por rutas: el JavaScript inicial pesa unos 113 KB comprimido. El panel de administración y los formularios, con su validación, solo los descarga quien entra en ellos.",
         en: "The app is split by route: the initial JavaScript is about 113 KB gzipped. The admin panel and the forms, with their validation, are only downloaded by whoever opens them.",
+      },
+    },
+    {
+      title: {
+        es: "Ante un incidente, pausar antes que arriesgar",
+        en: "In an incident, pause rather than risk it",
+      },
+      text: {
+        es: "Cuando Northflank, el proveedor del backend, sufrió un incidente de seguridad, pausé la demo pública con un aviso y cambié las credenciales del proyecto. Una demo parada unos días se recupera; unos datos expuestos, no.",
+        en: "When Northflank, the backend provider, suffered a security incident, I paused the public demo with a notice and changed the project’s credentials. A demo that’s down for a few days can be brought back; exposed data can’t.",
       },
     },
   ],

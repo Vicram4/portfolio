@@ -25,6 +25,11 @@ export type Project = {
   links: { live?: string; repo?: string };
   /** Aclaración junto al enlace de la demo (cuentas de prueba, datos ficticios…). */
   liveNote?: Localized;
+  /**
+   * Demo en mantenimiento: si existe, se ocultan los enlaces a la demo y se muestra
+   * este aviso en lugar de `liveNote`. Borrarlo para reactivar la demo.
+   */
+  maintenance?: Localized;
   cover: ProjectImage;
 
   // --- Caso de estudio ------------------------------------------------------
