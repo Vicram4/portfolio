@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { ClosingCta } from "@/components/home/closing-cta";
 import { SpecRow } from "@/components/projects/spec-row";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
+import { TextLink } from "@/components/ui/text-link";
 import { education, experience, skills, type PathEntry } from "@/content/about";
 import { profile } from "@/content/profile";
+import { projects } from "@/content/projects";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
+import { href } from "@/i18n/routes";
+import { cn } from "@/lib/cn";
 import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -136,10 +141,26 @@ function PathList({
                 {entry.kind && <span className="text-ink-muted"> · {entry.kind[locale]}</span>}
               </p>
             </div>
-            {entry.description && (
-              <p className="col-span-full text-ink-muted md:col-span-5 md:pt-1.5">
-                {entry.description[locale]}
-              </p>
+            {(entry.description || entry.showProjects) && (
+              <div className="col-span-full text-ink-muted md:col-span-5 md:pt-1.5">
+                {entry.description && <p>{entry.description[locale]}</p>}
+                {entry.showProjects && (
+                  <p className={cn("text-sm", entry.description && "mt-3")}>
+                    {dict.projects.eyebrow}:{" "}
+                    {projects.map((project, index) => (
+                      <Fragment key={project.slug}>
+                        {index > 0 && " · "}
+                        <TextLink
+                          href={href(locale, "projects", project.slug)}
+                          className="text-ink"
+                        >
+                          {project.title}
+                        </TextLink>
+                      </Fragment>
+                    ))}
+                  </p>
+                )}
+              </div>
             )}
           </li>
         ))}

@@ -12,6 +12,8 @@ export type PathEntry = {
   start: string;
   end?: string;
   description?: Localized;
+  /** Enlaza todos los proyectos del portfolio; se actualiza solo al añadir uno. */
+  showProjects?: boolean;
 };
 
 // Del más reciente al más antiguo.
@@ -20,6 +22,7 @@ export const experience: PathEntry[] = [
     title: { es: "Desarrollador web independiente", en: "Freelance web developer" },
     place: "Freelance",
     start: "2026-04",
+    showProjects: true,
     description: {
       es: "Diseño y desarrollo de webs a medida para clientes.",
       en: "Design and development of custom websites for clients.",
@@ -85,7 +88,7 @@ export const education: PathEntry[] = [
 export const skills: { group: Localized; items: (string | Localized)[] }[] = [
   {
     group: { es: "Frontend", en: "Frontend" },
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
+    items: ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS", "Vite"],
   },
   { group: { es: "Backend", en: "Backend" }, items: ["Python", "FastAPI", "SQLAlchemy"] },
   { group: { es: "Base de datos", en: "Database" }, items: ["PostgreSQL"] },
@@ -99,6 +102,7 @@ export const skills: { group: Localized; items: (string | Localized)[] }[] = [
       "Testing (pytest, Vitest)",
       { es: "Seguridad web", en: "Web security" },
       { es: "Accesibilidad", en: "Accessibility" },
+      { es: "SEO técnico", en: "Technical SEO" },
     ],
   },
   {
