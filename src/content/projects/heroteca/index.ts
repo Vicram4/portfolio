@@ -2,10 +2,12 @@ import type { Project } from "@/content/types";
 import cover from "./cover.webp";
 import dcOrdenCrossover from "./dc-orden-crossover.webp";
 import dcSeriesCarpetas from "./dc-series-carpetas.webp";
+import estadisticas from "./estadisticas.webp";
 import ficha from "./ficha.webp";
 import marvelUmcClaro from "./marvel-umc-claro.webp";
+import pasatiempos from "./pasatiempos.webp";
 
-// Datos tomados del README de heroteca y de la medición de Lighthouse que hizo el autor.
+// Datos tomados del README de heroteca, que incluye la medición de Lighthouse.
 // No añadir nada que no esté allí.
 export const heroteca: Project = {
   slug: "heroteca",
@@ -13,8 +15,8 @@ export const heroteca: Project = {
   year: 2026,
   featured: true,
   summary: {
-    es: "Enciclopedia de películas, series y animación de Marvel y DC generada a partir de un archivo personal de documentos Word y PowerPoint: 423 fichas, estanterías con la numeración original y órdenes de visionado capítulo a capítulo.",
-    en: "An encyclopedia of Marvel and DC films, series and animation generated from a personal archive of Word and PowerPoint documents: 423 entries, shelves with the original numbering and episode-by-episode viewing orders.",
+    es: "Enciclopedia bilingüe de películas, series y animación de Marvel y DC generada a partir de un archivo personal de documentos Word y PowerPoint: 426 fichas, órdenes de visionado capítulo a capítulo y datos que se actualizan solos.",
+    en: "A bilingual encyclopedia of Marvel and DC films, series and animation generated from a personal archive of Word and PowerPoint documents: 426 entries, episode-by-episode viewing orders and data that updates itself.",
   },
   kind: {
     es: "Proyecto personal · Web pública",
@@ -25,34 +27,34 @@ export const heroteca: Project = {
     en: "Product, design and development",
   },
   duration: {
-    es: "oct. 2026",
-    en: "Oct 2026",
+    es: "oct.–nov. 2026",
+    en: "Oct–Nov 2026",
   },
-  stack: ["Astro", "TypeScript", "Zod", "Python", "TMDB API"],
+  stack: ["Astro", "TypeScript", "Zod", "Python", "TMDB API", "GitHub Actions"],
   links: {
     live: "https://heroteca.vercel.app",
     repo: "https://github.com/Vicram4/heroteca",
   },
   liveKind: "site",
   liveNote: {
-    es: "Pulsa / en cualquier página para buscar. La web está solo en español.",
-    en: "Press / on any page to search. The site is in Spanish only.",
+    es: "Pulsa / en cualquier página para buscar. Disponible en español e inglés.",
+    en: "Press / on any page to search. Available in Spanish and English.",
   },
   cover: {
     src: cover,
     alt: {
-      es: "Portada de Heroteca: el lema «Todo el multiverso, en un solo lugar» y la elección de universo, con dos tarjetas hechas de carátulas: Marvel, con 246 títulos, y DC, con 177.",
-      en: "Heroteca home page: the tagline “The whole multiverse, in one place” and a choice of universe, with two cards made of DVD covers: Marvel, with 246 titles, and DC, with 177.",
+      es: "Portada de Heroteca: el lema «Todo el multiverso, en un solo lugar», el selector de idioma y la elección de universo, con dos tarjetas hechas de carteles: Marvel, con 247 títulos, y DC, con 179. Debajo, el test «¿No sabes qué ver?».",
+      en: "Heroteca home page: the tagline “The whole multiverse, in one place”, the language switcher and a choice of universe, with two cards made of posters: Marvel, with 247 titles, and DC, with 179. Below, the “Not sure what to watch?” quiz.",
     },
   },
 
   stats: [
-    { value: "423", label: { es: "fichas de Marvel y DC", en: "Marvel and DC entries" } },
+    { value: "426", label: { es: "fichas de Marvel y DC", en: "Marvel and DC entries" } },
     {
       value: "100",
       label: {
-        es: "en accesibilidad y SEO (Lighthouse)",
-        en: "accessibility and SEO (Lighthouse)",
+        es: "en accesibilidad, SEO y buenas prácticas (Lighthouse)",
+        en: "accessibility, SEO and best practices (Lighthouse)",
       },
     },
     { value: "0 €", label: { es: "de coste: planes gratuitos", en: "cost: free plans only" } },
@@ -72,16 +74,16 @@ export const heroteca: Project = {
       group: { es: "Explorar", en: "Browsing" },
       items: {
         es: [
-          "Estanterías con la numeración original y orden alternable: de la historia o de estreno.",
+          "Estanterías con la numeración original, vista de lista y cuatro órdenes: el de la colección, estreno, más recientes y mejor valoradas.",
           "Series de DC ordenadas por carpetas, con el orden de visionado capítulo a capítulo entre varias series.",
-          "Filtros por tipo, década, personaje y saga.",
-          "Búsqueda instantánea con el atajo /, que también encuentra títulos originales y alternativos.",
+          "Filtros por tipo, década, personaje, saga y plataforma.",
+          "Búsqueda instantánea con el atajo /, que también encuentra títulos originales y alternativos, y actores.",
         ],
         en: [
-          "Shelves with the original numbering and a switchable order: story order or release order.",
+          "Shelves with the original numbering, a list view and four orders: collection, release, most recent and top rated.",
           "DC series ordered by folder, with the episode-by-episode viewing order across several series.",
-          "Filters by type, decade, character and saga.",
-          "Instant search with the / shortcut, which also finds original and alternative titles.",
+          "Filters by type, decade, character, saga and platform.",
+          "Instant search with the / shortcut, which also finds original and alternative titles, and actors.",
         ],
       },
     },
@@ -101,19 +103,53 @@ export const heroteca: Project = {
       },
     },
     {
+      group: { es: "Herramientas", en: "Tools" },
+      items: {
+        es: [
+          "«¿Qué veo?»: una encuesta de 7 preguntas que recomienda títulos según tu tiempo, tus plataformas y tus gustos.",
+          "Mi progreso: marca lo que has visto y consulta el avance por sección; se guarda solo en el navegador, sin cuentas.",
+          "Planificador de maratones que reparte las horas en sesiones con descansos; el plan viaja en el enlace, sin servidor.",
+          "Estadísticas y rankings con gráficos accesibles, y 11 juegos hechos con los datos de la colección.",
+        ],
+        en: [
+          "“What should I watch?”: a 7-question quiz that recommends titles based on your time, platforms and tastes.",
+          "My progress: mark what you’ve watched and check your progress by section; it’s stored only in the browser, with no accounts.",
+          "Marathon planner that splits the hours into sessions with breaks; the plan travels in the link, with no server.",
+          "Statistics and rankings with accessible charts, and 11 games built from the collection’s data.",
+        ],
+      },
+    },
+    {
+      group: { es: "Datos al día", en: "Up-to-date data" },
+      items: {
+        es: [
+          "«Dónde ver» (datos de JustWatch) y el calendario de estrenos se actualizan solos cada semana con GitHub Actions.",
+          "Noticias de Marvel y DC recogidas cada día por RSS de medios especializados, con enlace a la fuente.",
+          "Para el mantenimiento, un aviso semanal por correo con estrenos anunciados, cambios de fecha y títulos que faltan en la colección.",
+        ],
+        en: [
+          "“Where to watch” (JustWatch data) and the release calendar update themselves every week with GitHub Actions.",
+          "Marvel and DC news collected daily via RSS from specialist outlets, linking to the source.",
+          "For maintenance, a weekly email alert with announced releases, date changes and titles missing from the collection.",
+        ],
+      },
+    },
+    {
       group: { es: "Contenido y calidad", en: "Content and quality" },
       items: {
         es: [
-          "423 fichas (246 de Marvel y 177 de DC), 171 personajes y 42 sagas y agrupaciones.",
-          "Lighthouse: accesibilidad y SEO 100, buenas prácticas 96–100 y rendimiento 94–98.",
+          "426 fichas (247 de Marvel y 179 de DC), 180 personajes y 42 sagas y agrupaciones.",
+          "Wiki con 273 textos en español e inglés y páginas de 287 intérpretes.",
+          "Lighthouse: accesibilidad, SEO y buenas prácticas 100, y rendimiento 90–99.",
           "Contraste AA en ambos modos, navegación por teclado con foco visible y respeto a «reducir movimiento».",
-          "Datos estructurados de schema.org (películas, series y temporadas) y mapa del sitio.",
+          "Datos estructurados de schema.org, mapa del sitio y hreflang; comprobación de unos 47.000 enlaces internos y 1.340 parejas de idioma.",
         ],
         en: [
-          "423 entries (246 Marvel and 177 DC), 171 characters and 42 sagas and groupings.",
-          "Lighthouse: accessibility and SEO 100, best practices 96–100 and performance 94–98.",
+          "426 entries (247 Marvel and 179 DC), 180 characters and 42 sagas and groupings.",
+          "A wiki with 273 texts in Spanish and English, and pages for 287 performers.",
+          "Lighthouse: accessibility, SEO and best practices 100, and performance 90–99.",
           "AA contrast in both modes, keyboard navigation with a visible focus and support for “reduce motion”.",
-          "schema.org structured data (films, series and seasons) and a sitemap.",
+          "schema.org structured data, a sitemap and hreflang; checks on about 47,000 internal links and 1,340 language pairs.",
         ],
       },
     },
@@ -139,12 +175,22 @@ export const heroteca: Project = {
     },
     {
       title: {
-        es: "Ni claves ni llamadas desde el navegador",
-        en: "No keys or calls from the browser",
+        es: "Ninguna clave en el navegador",
+        en: "No keys in the browser",
       },
       text: {
-        es: "TMDB solo se consulta al sincronizar, nunca desde el navegador. Los datos se guardan en un JSON compacto dentro del repositorio, así que la web publicada no necesita claves ni hace llamadas externas. El tráiler usa youtube-nocookie y solo se carga al pulsarlo.",
-        en: "TMDB is only queried when syncing, never from the browser. The data is stored as compact JSON in the repository, so the live site needs no keys and makes no external calls. The trailer uses youtube-nocookie and only loads when clicked.",
+        es: "TMDB solo se consulta al sincronizar, nunca desde el navegador, y su clave se guarda como secreto de GitHub. Los datos quedan en un JSON compacto dentro del repositorio, así que las páginas no dependen de ninguna API. El tráiler usa youtube-nocookie y solo se carga al pulsarlo, y las visitas se miden con Cloudflare Web Analytics, sin cookies.",
+        en: "TMDB is only queried when syncing, never from the browser, and its key is stored as a GitHub secret. The data ends up as compact JSON in the repository, so pages don’t depend on any API. The trailer uses youtube-nocookie and only loads when clicked, and visits are measured with Cloudflare Web Analytics, with no cookies.",
+      },
+    },
+    {
+      title: {
+        es: "Dos idiomas sin duplicar páginas",
+        en: "Two languages without duplicating pages",
+      },
+      text: {
+        es: "Cada página existe una sola vez y genera su versión española y la inglesa. Las direcciones en inglés se calculan a partir de los datos, como el título inglés de cada ficha, así que no hay ninguna tabla de rutas que mantener.",
+        en: "Each page exists only once and generates both its Spanish and English versions. English URLs are computed from the data, such as each entry’s English title, so there’s no route table to maintain.",
       },
     },
     {
@@ -153,8 +199,8 @@ export const heroteca: Project = {
         en: "Static and ready to grow",
       },
       text: {
-        es: "La web es 100 % estática, sin framework de cliente: solo unas pocas islas de JavaScript sin dependencias (buscador, filtros, tema, spoilers y tráiler). Añadir un universo nuevo es crear un archivo YAML; las rutas, la navegación y la portada se generan solas.",
-        en: "The site is 100% static, with no client-side framework: just a few dependency-free JavaScript islands (search, filters, theme, spoilers and trailer). Adding a new universe means creating one YAML file; routes, navigation and the home page are generated automatically.",
+        es: "La web es 100 % estática, sin framework de cliente: el JavaScript, sin dependencias, se limita a islas como el buscador, los filtros, los juegos o el planificador. Añadir un universo nuevo es crear un archivo YAML; las rutas, la navegación y la portada se generan solas.",
+        en: "The site is 100% static, with no client-side framework: the JavaScript, free of dependencies, is limited to islands such as search, filters, games and the planner. Adding a new universe means creating one YAML file; routes, navigation and the home page are generated automatically.",
       },
     },
   ],
@@ -166,9 +212,12 @@ export const heroteca: Project = {
     },
     {
       layer: { es: "Extracción de datos", en: "Data extraction" },
-      items: ["Python", "python-docx", "python-pptx", "PyMuPDF", "Pillow", "TMDB API"],
+      items: ["Python", "python-docx", "python-pptx", "PyMuPDF", "Pillow", "TMDB API", "JustWatch"],
     },
-    { layer: { es: "Infraestructura", en: "Infrastructure" }, items: ["Vercel"] },
+    {
+      layer: { es: "Infraestructura", en: "Infrastructure" },
+      items: ["Vercel", "GitHub Actions", "Cloudflare Web Analytics"],
+    },
   ],
 
   gallery: [
@@ -180,8 +229,8 @@ export const heroteca: Project = {
         en: "DC series ordered by the archive’s folders",
       },
       alt: {
-        es: "Página «Series · Por carpetas» de DC: botones de orden y tipo, filtros por década, personaje y saga, y la Carpeta 1 · Pre-Crossover con las cinco primeras temporadas de Smallville numeradas del 1.1 al 1.5.",
-        en: "DC “Series · By folder” page: order and type buttons, filters by decade, character and saga, and Folder 1 · Pre-Crossover with the first five seasons of Smallville numbered 1.1 to 1.5.",
+        es: "Página «Series · Por carpetas» de DC: botones de vista, orden y tipo, filtros por década, personaje, plataforma y saga, y la Carpeta 1 · Pre-Crossover con las cinco primeras temporadas de Smallville numeradas del 1.1 al 1.5.",
+        en: "DC “Series · By folder” page: view, order and type buttons, filters by decade, character, platform and saga, and Folder 1 · Pre-Crossover with the first five seasons of Smallville numbered 1.1 to 1.5.",
       },
     },
     {
@@ -204,8 +253,8 @@ export const heroteca: Project = {
         en: "Entry with data from the archive and from TMDB",
       },
       alt: {
-        es: "Ficha de Watchmen, número 021 del UDC: cartel, etiquetas de película, 2009, 163 min y calidad 4K, sinopsis marcada como «Sinopsis de TMDB» y el tráiler con un botón de reproducir.",
-        en: "Watchmen entry, number 021 of the DCU: poster, tags for film, 2009, 163 min and 4K quality, a synopsis labelled “Synopsis from TMDB” and the trailer with a play button.",
+        es: "Ficha de Watchmen, número 021 del UDC: cartel, etiquetas de película, 2009, 163 min y calidad 4K, botón «Marcar como visto», un párrafo «En resumen» y la sinopsis marcada como «Sinopsis de TMDB».",
+        en: "Watchmen entry, number 021 of the DCU: poster, tags for film, 2009, 163 min and 4K quality, a “Mark as watched” button, an “In short” paragraph and a synopsis labelled “Synopsis from TMDB”.",
       },
     },
     {
@@ -216,18 +265,42 @@ export const heroteca: Project = {
         en: "MCU shelf in light mode",
       },
       alt: {
-        es: "Página «UMC · Orden cronológico» en modo claro: botones de orden de la historia o de estreno, filtros por tipo, y carátulas numeradas desde el 001, Capitán América: El primer vengador, con un borde de color según el tipo.",
-        en: "“MCU · Chronological order” page in light mode: story or release order buttons, filters by type, and covers numbered from 001, Captain America: The First Avenger, each with a colour border by type.",
+        es: "Página «UMC · Orden cronológico» en modo claro: botones de vista y de los cuatro órdenes, filtros por tipo, y carteles numerados desde el 001, Capitán América: El primer vengador, con un borde de color según el tipo.",
+        en: "“MCU · Chronological order” page in light mode: view buttons and the four orders, filters by type, and posters numbered from 001, Captain America: The First Avenger, each with a colour border by type.",
+      },
+    },
+    {
+      src: estadisticas,
+      size: "half",
+      caption: {
+        es: "Estadísticas calculadas con los datos de la colección",
+        en: "Statistics computed from the collection’s data",
+      },
+      alt: {
+        es: "Página «Estadísticas»: 1686 horas para verlo todo, 426 títulos, 471 horas de maratón del UMC, 80 de 222 películas con escena poscréditos y un gráfico de barras con las horas de cada sección.",
+        en: "“Statistics” page: 1,686 hours to watch it all, 426 titles, a 471-hour MCU marathon, 80 of 222 films with a post-credits scene and a bar chart with the hours of each section.",
+      },
+    },
+    {
+      src: pasatiempos,
+      size: "half",
+      caption: {
+        es: "Juegos hechos con los datos de la colección",
+        en: "Games built from the collection’s data",
+      },
+      alt: {
+        es: "Página «Pasatiempos»: tarjetas de juegos como Heroedle, Adivina el personaje, Cartel pixelado, ¿Qué héroe eres? y Conecta a los actores, cada una con su descripción y un enlace para jugar.",
+        en: "“Games” page: cards for games such as Heroedle, Guess the character, Pixelated poster, Which hero are you? and Connect the actors, each with a description and a link to play.",
       },
     },
   ],
 
   credits: {
-    es: "Dirigí el proyecto de principio a fin: el archivo original, la idea, las decisiones de producto, diseño y tecnología, y la revisión y prueba de cada parte antes de darla por terminada. Lo desarrollé con Claude Code como asistente de programación.",
-    en: "I led the project from start to finish: the original archive, the idea, the product, design and technology decisions, and reviewing and testing every part before calling it done. I built it with Claude Code as a coding assistant.",
+    es: "Dirigí el proyecto de principio a fin: el archivo original, la idea, las decisiones de producto, diseño y tecnología, y la revisión y prueba de cada parte antes de darla por terminada. Lo desarrollé con Claude Code como asistente de programación y de redacción de los textos de la wiki.",
+    en: "I led the project from start to finish: the original archive, the idea, the product, design and technology decisions, and reviewing and testing every part before calling it done. I built it with Claude Code as an assistant for coding and for writing the wiki texts.",
   },
   notice: {
-    es: "Proyecto de fans sin ánimo de lucro y no oficial, sin relación con Marvel, DC, Disney ni Warner Bros. Todos los personajes y marcas pertenecen a sus respectivos propietarios. Usa TMDB y su API, pero no está respaldado ni certificado por TMDB.",
-    en: "Non-profit, unofficial fan project, not affiliated with Marvel, DC, Disney or Warner Bros. All characters and trademarks belong to their respective owners. It uses TMDB and the TMDB API but is not endorsed or certified by TMDB.",
+    es: "Proyecto de fans sin ánimo de lucro y no oficial, sin relación con Marvel, DC, Disney ni Warner Bros. Todos los personajes y marcas pertenecen a sus respectivos propietarios. Usa TMDB y su API, pero no está respaldado ni certificado por TMDB. Los datos de «Dónde ver» proceden de JustWatch.",
+    en: "Non-profit, unofficial fan project, not affiliated with Marvel, DC, Disney or Warner Bros. All characters and trademarks belong to their respective owners. It uses TMDB and the TMDB API but is not endorsed or certified by TMDB. “Where to watch” data comes from JustWatch.",
   },
 };

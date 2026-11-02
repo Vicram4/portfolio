@@ -43,8 +43,8 @@ export const cafeSinnoh: Project = {
   },
   // Temporal: borrar cuando Northflank vuelva a ser fiable para reactivar la demo.
   maintenance: {
-    es: "La demo está en pausa por un incidente de seguridad en Northflank, el proveedor que aloja el backend. Por precaución he cambiado las credenciales del proyecto y la demo volverá cuando el servicio sea fiable. Mientras tanto, puedes ver el código y las capturas.",
-    en: "The demo is paused due to a security incident at Northflank, the provider hosting the backend. As a precaution I’ve changed the project’s credentials, and the demo will be back once the service is reliable. In the meantime, you can browse the code and the screenshots.",
+    es: "La demo está en pausa por un incidente de seguridad en Northflank, el proveedor que aloja el backend. Por precaución he cambiado la contraseña de la base de datos y renovaré el resto de claves antes de reactivar la demo, que volverá cuando el servicio sea fiable. Mientras tanto, puedes ver el código y las capturas.",
+    en: "The demo is paused due to a security incident at Northflank, the provider hosting the backend. As a precaution I’ve changed the database password and will renew the remaining keys before reactivating the demo, which will be back once the service is reliable. In the meantime, you can browse the code and the screenshots.",
   },
   cover: {
     src: cover,
@@ -172,8 +172,8 @@ export const cafeSinnoh: Project = {
         en: "In an incident, pause rather than risk it",
       },
       text: {
-        es: "Cuando Northflank, el proveedor del backend, sufrió un incidente de seguridad, pausé la demo pública con un aviso y cambié las credenciales del proyecto. Una demo parada unos días se recupera; unos datos expuestos, no.",
-        en: "When Northflank, the backend provider, suffered a security incident, I paused the public demo with a notice and changed the project’s credentials. A demo that’s down for a few days can be brought back; exposed data can’t.",
+        es: "Cuando Northflank, el proveedor del backend, sufrió un incidente de seguridad, pausé la demo pública con un aviso y cambié la contraseña de la base de datos; el resto de claves se renovará antes de reactivarla. Una demo parada unos días se recupera; unos datos expuestos, no.",
+        en: "When Northflank, the backend provider, suffered a security incident, I paused the public demo with a notice and changed the database password; the remaining keys will be renewed before it’s reactivated. A demo that’s down for a few days can be brought back; exposed data can’t.",
       },
     },
   ],
