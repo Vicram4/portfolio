@@ -37,8 +37,8 @@ export const restauranteUnion: Project = {
     live: "https://restaurante-union.victorramos-devs.workers.dev",
   },
   liveNote: {
-    es: "Concepto no oficial, sin relación con el restaurante. El formulario de reservas es una demostración: valida los datos y prepara el mensaje, pero no envía ni guarda nada. En inglés están la portada, la carta y el contacto.",
-    en: "Unofficial concept, not affiliated with the restaurant. The booking form is a demo: it validates your input and drafts the message, but doesn’t send or store anything. The home page, menu and contact page are available in English.",
+    es: "Demo de una idea de mejora para la web del restaurante: concepto no oficial, sin relación con él. El formulario de reservas es una demostración: valida los datos y prepara el mensaje, pero no envía ni guarda nada. En inglés están la portada, la carta y el contacto.",
+    en: "Demo of an improvement idea for the restaurant’s website: an unofficial concept, not affiliated with it. The booking form is a demo: it validates your input and drafts the message, but doesn’t send or store anything. The home page, menu and contact page are available in English.",
   },
   cover: {
     src: cover,
@@ -231,7 +231,7 @@ export const restauranteUnion: Project = {
     en: "I led the project from start to finish: I chose the visual direction, reviewed every part and tested the panel. I built it with Claude Code.",
   },
   notice: {
-    es: "Concepto no oficial, hecho por iniciativa propia y sin relación con el restaurante.",
-    en: "Unofficial concept, made on my own initiative and not affiliated with the restaurant.",
+    es: "Concepto no oficial: una idea de mejora para la web del restaurante, hecha por iniciativa propia y sin relación con él.",
+    en: "Unofficial concept: an improvement idea for the restaurant’s website, made on my own initiative and not affiliated with it.",
   },
 };
