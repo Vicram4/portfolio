@@ -6,6 +6,7 @@
 export const projectSlugs = [
   "cafe-sinnoh",
   "heroteca",
+  "mapadrid",
   "peluqueria-arriaga",
   "restaurante-union",
 ] as const;

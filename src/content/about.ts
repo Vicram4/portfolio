@@ -88,7 +88,7 @@ export const education: PathEntry[] = [
 export const skills: { group: Localized; items: (string | Localized)[] }[] = [
   {
     group: { es: "Frontend", en: "Frontend" },
-    items: ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS", "Vite"],
+    items: ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS", "Vite", "MapLibre GL JS"],
   },
   { group: { es: "Backend", en: "Backend" }, items: ["Python", "FastAPI", "SQLAlchemy"] },
   { group: { es: "Base de datos", en: "Database" }, items: ["PostgreSQL"] },
