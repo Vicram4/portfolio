@@ -5,6 +5,7 @@ import ficha from "./ficha.webp";
 import interurbanos from "./interurbanos.webp";
 import linea27 from "./linea-27.webp";
 import movil from "./movil.webp";
+import arquitectura from "./arquitectura.webp";
 
 // Datos tomados de PROGRESS.md y sobre.html de madrid-en-vivo, y de la web publicada
 // (capturas del 6-nov-2026). No añadir nada que no esté allí.
@@ -232,6 +233,18 @@ export const mapadrid: Project = {
       alt: {
         es: "Mapa de la Comunidad de Madrid de noche: los autobuses de la EMT como puntos azules en la capital y los interurbanos como aros verdes por las carreteras hacia Alcobendas, Alcorcón, Móstoles o Torrejón de Ardoz.",
         en: "Night map of the Region of Madrid: EMT buses as blue dots in the capital and intercity buses as green rings along the roads towards Alcobendas, Alcorcón, Móstoles or Torrejón de Ardoz.",
+      },
+    },
+    {
+      src: arquitectura,
+      size: "large",
+      caption: {
+        es: "Arquitectura: la web en Vercel y una función que consulta a la EMT con las claves a salvo",
+        en: "Architecture: the site on Vercel and a function that queries the EMT with the keys kept safe",
+      },
+      alt: {
+        es: "Diagrama de arquitectura. El navegador carga por HTTPS la web en Vercel, hecha con MapLibre GL, JavaScript, HTML y CSS. Unos scripts de Node.js preparan de antemano los datos de OpenStreetMap, la EMT y el CRTM, y OpenFreeMap da el mapa base. La web pide los autobuses a una función de Vercel, con las claves como secretos y una caché de 30 segundos, que consulta la API MobilityLabs de la EMT 32 paradas por ronda.",
+        en: "Architecture diagram. The browser loads the site on Vercel over HTTPS, built with MapLibre GL, JavaScript, HTML and CSS. Node.js scripts prepare OpenStreetMap, EMT and CRTM data ahead of time, and OpenFreeMap provides the base map. The site asks a Vercel function for the buses, with the keys stored as secrets and a 30-second cache, which queries the EMT’s MobilityLabs API 32 stops per round.",
       },
     },
   ],

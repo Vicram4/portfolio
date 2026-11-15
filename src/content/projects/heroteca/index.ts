@@ -6,6 +6,7 @@ import estadisticas from "./estadisticas.webp";
 import ficha from "./ficha.webp";
 import marvelUmcClaro from "./marvel-umc-claro.webp";
 import pasatiempos from "./pasatiempos.webp";
+import arquitectura from "./arquitectura.webp";
 
 // Datos tomados del README de heroteca, que incluye la medición de Lighthouse.
 // No añadir nada que no esté allí.
@@ -291,6 +292,18 @@ export const heroteca: Project = {
       alt: {
         es: "Página «Pasatiempos»: tarjetas de juegos como Heroedle, Adivina el personaje, Cartel pixelado, ¿Qué héroe eres? y Conecta a los actores, cada una con su descripción y un enlace para jugar.",
         en: "“Games” page: cards for games such as Heroedle, Guess the character, Pixelated poster, Which hero are you? and Connect the actors, each with a description and a link to play.",
+      },
+    },
+    {
+      src: arquitectura,
+      size: "large",
+      caption: {
+        es: "Arquitectura: de los documentos de Word a una web estática",
+        en: "Architecture: from Word documents to a static website",
+      },
+      alt: {
+        es: "Diagrama de arquitectura en dos flujos. Arriba, los documentos de Word y PowerPoint pasan por scripts de Python (python-docx, python-pptx, PyMuPDF y Pillow) que generan fichas en Markdown con YAML. Abajo, GitHub Actions sincroniza cada semana los datos de TMDB y JustWatch, con la clave como secreto, y los guarda en un JSON del repositorio. Los dos llegan a Astro 7, que lo valida con Zod y TypeScript y genera una web 100 % estática en Vercel, servida al navegador por HTTPS.",
+        en: "Architecture diagram with two flows. At the top, Word and PowerPoint documents go through Python scripts (python-docx, python-pptx, PyMuPDF and Pillow) that generate Markdown entries with YAML. At the bottom, GitHub Actions syncs TMDB and JustWatch data every week, with the key stored as a secret, and saves it to a JSON file in the repository. Both reach Astro 7, which validates them with Zod and TypeScript and builds a 100% static site on Vercel, served to the browser over HTTPS.",
       },
     },
   ],

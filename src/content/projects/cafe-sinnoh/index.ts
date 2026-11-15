@@ -5,6 +5,7 @@ import cover from "./cover.webp";
 import homeOscuro from "./home-oscuro.webp";
 import movilCarta from "./movil-carta.webp";
 import producto from "./producto.webp";
+import arquitectura from "./arquitectura.webp";
 
 // Datos tomados de la implementación y la documentación reales del proyecto
 // (README, README.en y docs/estado-cafe-sinnoh.md de cafe-sinnoh).
@@ -253,6 +254,18 @@ export const cafeSinnoh: Project = {
       alt: {
         es: "Portada de Café Sinnoh en modo oscuro.",
         en: "Café Sinnoh home page in dark mode.",
+      },
+    },
+    {
+      src: arquitectura,
+      size: "large",
+      caption: {
+        es: "Arquitectura: web en Vercel, API en Northflank y base de datos en Neon",
+        en: "Architecture: website on Vercel, API on Northflank and database on Neon",
+      },
+      alt: {
+        es: "Diagrama de arquitectura. El navegador carga por HTTPS la web en React 19 con Vite y TypeScript, alojada en Vercel, que llama a la API en FastAPI con Python 3.14 y SQLAlchemy 2, en Docker sobre Northflank. La API guarda los datos en PostgreSQL 17 en Neon, con migraciones de Alembic. GitHub Actions reinicia los datos de la demo cada día.",
+        en: "Architecture diagram. The browser loads the React 19 website, built with Vite and TypeScript and hosted on Vercel, over HTTPS; it calls the FastAPI API with Python 3.14 and SQLAlchemy 2, in Docker on Northflank. The API stores data in PostgreSQL 17 on Neon, with Alembic migrations. GitHub Actions resets the demo data every day.",
       },
     },
   ],

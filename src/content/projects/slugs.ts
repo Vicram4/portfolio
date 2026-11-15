@@ -9,6 +9,7 @@ export const projectSlugs = [
   "mapadrid",
   "peluqueria-arriaga",
   "restaurante-union",
+  "slotea",
 ] as const;
 
 export type ProjectSlug = (typeof projectSlugs)[number];

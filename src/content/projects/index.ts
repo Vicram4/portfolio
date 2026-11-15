@@ -4,6 +4,7 @@ import { heroteca } from "./heroteca";
 import { mapadrid } from "./mapadrid";
 import { peluqueriaArriaga } from "./peluqueria-arriaga";
 import { restauranteUnion } from "./restaurante-union";
+import { slotea } from "./slotea";
 import { projectSlugs } from "./slugs";
 
 /**
@@ -12,6 +13,7 @@ import { projectSlugs } from "./slugs";
  * y añadir su slug en slugs.ts.
  */
 export const projects: Project[] = [
+  slotea,
   mapadrid,
   heroteca,
   cafeSinnoh,
